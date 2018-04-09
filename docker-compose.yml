@@ -10,19 +10,13 @@ services:
     volumes:
       - .:/go/src/github.com/ALSAD-project/smoke-test
 
-#  randfeeder:
-#    build:
-#      context: .
-#      dockerfile: ./dockerfiles/datafeeder.dockerfile
-#    image: localhost/alsad/smoke-test/randfeeder
-#    working_dir: /go/src/github.com/ALSAD-project/alsad-core
-#    volumes:
-#      - .:/go/src/github.com/ALSAD-project/alsad-core
-#    ports:
-#      - 6010:6010
-#    environment:
-#      - RF_DATA_MEAN=100
-#      - RF_DATA_VAR=20
-#      - RF_NOISE_MEAN=0
-#      - RF_NOISE_VAR=2
+  randfeeder:
+    image: alsad/smoke-test-randfeeder:git-d8bf26a
+    ports:
+      - 6010
+    environment:
+      RF_DATA_MEAN: 100
+      RF_DATA_VAR: 20
+      RF_NOISE_MEAN: 0
+      RF_NOISE_VAR: 2
 
