@@ -1,0 +1,8 @@
+hash: 5542d7946868beb6d12ab31ceff8116c6ef781d31cfd7e7e8b36eae54190e9dc
+updated: 2018-04-09T17:22:35.654712207Z
+imports:
+- name: github.com/kelseyhightower/envconfig
+  version: f611eb38b3875cc3bd991ca91c51d06446afa14c
+- name: gonum.org/v1/gonum
+  version: 698d55ff6ead500c4deb283529de8fb1621dfc13
+testImports: []
