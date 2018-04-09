@@ -1,8 +1,36 @@
-hash: 5542d7946868beb6d12ab31ceff8116c6ef781d31cfd7e7e8b36eae54190e9dc
-updated: 2018-04-09T17:22:35.654712207Z
+hash: bbecf665ef5fbc8db03f8232109c53f350de730e7915f327b238c3f35ec6a43e
+updated: 2018-04-09T18:14:28.098105323Z
 imports:
 - name: github.com/kelseyhightower/envconfig
   version: f611eb38b3875cc3bd991ca91c51d06446afa14c
+- name: golang.org/x/exp
+  version: 8460e604b9de9da5834c9f198cadf9dca4b05cac
+  subpackages:
+  - rand
+- name: golang.org/x/tools
+  version: ac136b6c2db7c4d43955e4bc7174db36dc0539c0
+  subpackages:
+  - container/intsets
 - name: gonum.org/v1/gonum
   version: 698d55ff6ead500c4deb283529de8fb1621dfc13
+  subpackages:
+  - blas
+  - blas/blas64
+  - blas/gonum
+  - floats
+  - internal/asm/c128
+  - internal/asm/f32
+  - internal/asm/f64
+  - internal/math32
+  - lapack
+  - lapack/gonum
+  - lapack/lapack64
+  - mat
+  - mathext
+  - mathext/internal/amos
+  - mathext/internal/cephes
+  - mathext/internal/gonum
+  - stat
+  - stat/distmv
+  - stat/distuv
 testImports: []

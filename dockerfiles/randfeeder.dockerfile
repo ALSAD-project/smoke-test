@@ -15,11 +15,15 @@ RUN mkdir -p /go/src/github.com/ALSAD-project/smoke-test
 WORKDIR /go/src/github.com/ALSAD-project/smoke-test
 
 COPY . /go/src/github.com/ALSAD-project/smoke-test
-RUN glide install
+RUN \
+     glide mirror set \
+        https://gonum.org/v1/gonum \
+        https://github.com/gonum/gonum \
+  && glide install
 
 RUN \
   go build \
-    -o /usr/local/bin/randfeeder
+    -o /usr/local/bin/randfeeder \
     github.com/ALSAD-project/smoke-test/cmd/randfeeder
 
 
