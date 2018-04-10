@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"math"
 	"net/http"
 
 	"github.com/ALSAD-project/smoke-test/pkg/randfeeder/handler"
@@ -17,10 +18,10 @@ func main() {
 	}
 
 	hdr, err := handler.NewRandHandler(
-		rfConfig.DataMean,
-		rfConfig.DataVar,
-		rfConfig.NoiseMean,
-		rfConfig.NoiseVar,
+		rfConfig.DataVariance,
+		math.Abs(rfConfig.NoiseMagnitude),
+		rfConfig.NoiseVariance,
+		math.Min(1, math.Abs(rfConfig.NoiseProbability)),
 	)
 	if err != nil {
 		log.Fatalf("Failed to create handler: %s", err.Error())

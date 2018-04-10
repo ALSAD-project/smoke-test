@@ -15,8 +15,7 @@ services:
     ports:
       - 6010
     environment:
-      RF_DATA_MEAN: 100
-      RF_DATA_VAR: 20
-      RF_NOISE_MEAN: 0
-      RF_NOISE_VAR: 2
+      RF_DATA_VARIANCE: 10
+      RF_NOISE_MAGNITUDE: 20
+      RF_NOISE_VARIANCE: 50
 
