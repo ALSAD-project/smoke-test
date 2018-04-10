@@ -11,7 +11,7 @@ services:
       - .:/go/src/github.com/ALSAD-project/smoke-test
 
   randfeeder:
-    image: alsad/smoke-test-randfeeder:git-d8bf26a
+    image: alsad/smoke-test-randfeeder:git-edc32f7
     ports:
       - 6010
     environment:
