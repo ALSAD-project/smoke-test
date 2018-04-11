@@ -28,7 +28,6 @@ def handle(req):
     if len(X) == len(Y):
         clf.partial_fit(np.array(X), np.array(Y))
         pickle.dump(clf, open(filename, 'wb'))
-        response = None
     else:
         Y = clf.predict(X)
     
