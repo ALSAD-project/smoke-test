@@ -1,0 +1,26 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+  network:
+
+functions:
+  ba:
+    lang: dockerfile
+    image: functions/alpine:0.6.9
+    skip_build: true
+    environment:
+      fprocess: "cat"
+
+  usl:
+    lang: dockerfile
+    image: functions/alpine:0.6.9
+    skip_build: true
+    environment:
+      fprocess: "cat"
+
+  sl:
+    lang: dockerfile
+    image: functions/alpine:0.6.9
+    skip_build: true
+    environment:
+      fprocess: "cat"
