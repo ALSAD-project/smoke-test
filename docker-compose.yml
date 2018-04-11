@@ -14,8 +14,45 @@ services:
     image: alsad/smoke-test-randfeeder:git-edc32f7
     ports:
       - 6010
+    networks:
+      - faas
     environment:
       RF_DATA_VARIANCE: 10
       RF_NOISE_MAGNITUDE: 20
       RF_NOISE_VARIANCE: 50
 
+  dispatcher:
+    image: alsad/dispatcher:git-9695aa3
+    depends_on:
+      - redis
+    networks:
+      - faas
+    volumes:
+      - fsq-store:/var/run/alsad-dispatcher/fsq
+    environment:
+      DP_ENTER_MODE: "training"
+      DP_BASIC_RATE_LIMIT: 0.5
+      DP_FSQ_REDIS_ADDR: "redis:6379"
+      DP_FSQ_DIR: "/var/run/alsad-dispatcher/fsq"
+      DP_FSQ_EXPERT_INPUT_QUEUE: "expert-input-queue"
+      DP_FSQ_EXPERT_OUTPUT_QUEUE: "expert-output-queue"
+      DP_FEEDER_URL: "http://randfeeder:6010"
+      DP_BA_URL: "http://alsad_gateway:8080/function/ba"
+      DP_USL_URL: "http://alsad_gateway:8080/function/usl"
+      DP_SL_URL: "http://alsad_gateway:8080/function/sl"
+
+  redis:
+    image: redis:4.0-alpine
+    networks:
+      - faas
+    volumes:
+      - redis-store:/data
+
+volumes:
+  redis-store:
+  fsq-store:
+
+networks:
+  faas:
+    external:
+      name: alsad_smoke_faas
