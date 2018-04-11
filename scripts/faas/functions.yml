@@ -13,14 +13,10 @@ functions:
 
   usl:
     lang: dockerfile
-    image: functions/alpine:0.6.9
-    skip_build: true
-    environment:
-      fprocess: "cat"
+    handler: ./usl
+    image: usl
 
   sl:
     lang: dockerfile
-    image: functions/alpine:0.6.9
-    skip_build: true
-    environment:
-      fprocess: "cat"
+    handler: ./sl
+    image: sl
